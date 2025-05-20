@@ -1,0 +1,97 @@
+'use client';
+import React from 'react';
+import { AiOutlineGithub, AiOutlineLinkedin } from 'react-icons/ai';
+import { DiJavascript1, DiNodejsSmall, DiReact } from 'react-icons/di';
+import { TbBrandTypescript } from 'react-icons/tb';
+import { FaPhp } from 'react-icons/fa6';
+import { motion } from 'framer-motion';
+
+const Hero = () => {
+  return (
+    <div className="mt-24 max-w-[1200px] mx-auto relative">
+      <div className="flex justify-center items-center">
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+        >
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="text-gray-200 md:text-7xl text-5xl tracking-tight mb-4"
+          >
+            HELLO, I AM <br />
+            <span className="text-purple-500">Shan Jeev</span>
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 1 }}
+            className="text-gray-300 max-w-[300px] md:max-w-[500px] md:text-2xl text-lg mb-6"
+          >
+            I am a passionate fullstack developer
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 1.5 }}
+            className="flex flex-row items-center gap-6 my-4 md:mb-0"
+          >
+            <div className="flex gap-6 flex-row text-4xl md:text-6xl text-purple-400 z-20">
+              <motion.a
+                whileHover={{ scale: 1.2 }}
+                href="https://github.com/Randriantahina"
+              >
+                <AiOutlineGithub />
+              </motion.a>
+
+              <motion.a
+                whileHover={{ scale: 1.2 }}
+                href="https://www.linkedin.com/in/shan-jeev-1382a92ab"
+              >
+                <AiOutlineLinkedin />
+              </motion.a>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 2 }}
+        className="flex flex-row text-7xl px-12 md:px-0 w-full justify-center items-center py-24"
+      >
+        <p className="text-gray-200 mr-6">My Tech Stack</p>
+        <motion.div whileHover={{ scale: 1.2 }}>
+          <FaPhp className="mx-2" style={{ color: '#777BB4' }} />
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.2 }}>
+          <TbBrandTypescript className="text-blue-600 mx-2" />
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.2 }}>
+          <DiJavascript1 className="text-yellow-500 mx-2" />
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.2 }}>
+          <DiReact
+            className="text-blue-500 mx-2 animate-spin"
+            style={{ animationDuration: '9s' }}
+          />
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.2 }}>
+          <DiNodejsSmall className="text-green-500 mx-2" />
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default Hero;
