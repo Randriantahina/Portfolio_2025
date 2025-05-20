@@ -34,7 +34,7 @@ const projects = [
     title: 'Project 4',
     description: 'My personal portfolio website.',
     links: {
-      github: '#',
+      github: 'https://github.com/Randriantahina/Portfolio_2025.git',
     },
   },
 ];
