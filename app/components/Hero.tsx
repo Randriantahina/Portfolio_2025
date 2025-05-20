@@ -68,9 +68,9 @@ const Hero = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 2 }}
-        className="flex flex-row text-7xl px-12 md:px-0 w-full justify-center items-center py-24"
+        className="flex flex-col md:flex-row text-3xl sm:text-5xl md:text-7xl px-4 sm:px-6 md:px-0 w-full justify-center items-center py-12 sm:py-24 gap-6"
       >
-        <p className="text-gray-200 mr-6">My Tech Stack</p>
+        <p className="text-gray-200 mr-0 md:mr-6 text-center">My Tech Stack</p>
         <motion.div whileHover={{ scale: 1.2 }}>
           <FaPhp className="mx-2" style={{ color: '#777BB4' }} />
         </motion.div>
