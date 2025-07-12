@@ -4,6 +4,7 @@ import { RiTailwindCssFill } from 'react-icons/ri';
 import { RiNextjsFill } from 'react-icons/ri';
 import { FaLaravel } from 'react-icons/fa';
 import { SiMysql } from 'react-icons/si';
+import { SiPostgresql } from 'react-icons/si';
 import Reveal from './Reveal';
 
 const skills = [
@@ -37,6 +38,7 @@ const skills = [
       { name: 'MongoDB', icon: <DiMongodb className="text-green-600" /> },
       { name: 'Laravel', icon: <FaLaravel className="text-red-500" /> },
       { name: 'Mysql', icon: <SiMysql className="text-blue-600" /> },
+      { name: 'PostgreSQL', icon: <SiPostgresql className="text-blue-400" /> },
     ],
   },
 ];

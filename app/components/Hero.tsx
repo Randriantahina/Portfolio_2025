@@ -48,6 +48,7 @@ const Hero = () => {
               <motion.a
                 whileHover={{ scale: 1.2 }}
                 href="https://github.com/Randriantahina"
+                aria-label="GitHub"
               >
                 <AiOutlineGithub />
               </motion.a>
@@ -55,10 +56,20 @@ const Hero = () => {
               <motion.a
                 whileHover={{ scale: 1.2 }}
                 href="https://www.linkedin.com/in/shan-jeev-1382a92ab"
+                aria-label="LinkedIn"
               >
                 <AiOutlineLinkedin />
               </motion.a>
             </div>
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              href="/CV.pdf"
+              download
+              className="ml-4 px-4 py-2 rounded bg-purple-500 text-white text-base md:text-lg font-semibold shadow hover:bg-purple-600 transition-colors duration-200"
+              aria-label="Download CV"
+            >
+              Download CV
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
