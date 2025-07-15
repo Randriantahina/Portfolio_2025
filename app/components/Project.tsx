@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import { AiOutlineGithub, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import TitleCard from './ui/TitleCard';
 import Reveal from './Reveal';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const projects = [
   {
     img: '/TODO-List.png',
-    title: 'todo project',
+    title: 'Todo Project',
     description:
       'Todo List with authentication built using React.js, Express, and MySQL.',
     technos: ['React.js', 'Express', 'MySQL', 'Tailwind CSS'],
@@ -17,7 +18,7 @@ const projects = [
   },
   {
     img: '/e.jpg',
-    title: 'e-commmerce project',
+    title: 'E-commerce Project',
     description: 'E-commerce website built with Laravel, React, and MySQL.',
     technos: ['Laravel', 'React', 'MySQL', 'Tailwind CSS'],
     links: {
@@ -26,7 +27,7 @@ const projects = [
   },
   {
     img: '/stocks.jpg',
-    title: 'inventory management project',
+    title: 'Inventory Management',
     description: 'Inventory management project developed with Next.js.',
     technos: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Prisma', 'MySQL'],
     links: {
@@ -35,7 +36,7 @@ const projects = [
   },
   {
     img: '/portfolio.png',
-    title: 'Portfolio website',
+    title: 'Portfolio Website',
     description: 'My personal portfolio website.',
     technos: ['Next.js', 'Tailwind CSS'],
     links: {
@@ -44,8 +45,8 @@ const projects = [
   },
   {
     img: '/i.png',
-    title: 'intelligent website project',
-    description: 'Intelligent website.',
+    title: 'Intelligent Website',
+    description: 'AI-enhanced intelligent website.',
     technos: ['Next.js', 'Firebase', 'Gemini API', 'Tailwind CSS'],
     links: {
       github: 'https://github.com/Randriantahina/task-app.git',
@@ -55,90 +56,101 @@ const projects = [
 
 const Project = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () =>
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
+  const handlePrev = () =>
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+
   const currentProject = projects[currentIndex];
 
-  const nextProject = () => {
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
-  };
-
-  const prevProject = () => {
-    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
-  };
-
   return (
-    <div className="max-w-[1000px] mx-auto p-6 md:my-20" id="portfolio">
-      <div className="w-full flex flex-col items-center text-center">
+    <div className="max-w-4xl mx-auto px-4 py-20" id="portfolio">
+      <div className="flex flex-col items-center text-center">
         <Reveal>
-          <h2 className="text-3xl font-bold text-gray-200 mb-10">
-            My side fun projects
+          <h2 className="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">
+            My Side fun Projects
           </h2>
         </Reveal>
 
         <Reveal>
-          <div
-            className="relative flex flex-col justify-center items-center mb-8 w-[400px] mx-auto"
-            style={{ minHeight: 400 }}
-          >
-            {/* Previous Button */}
+          <div className="relative flex flex-col items-center w-full max-w-md mx-auto mb-8 min-h-[420px]">
+            {/* Prev button */}
             <button
-              onClick={prevProject}
-              className="absolute left-2 top-1/2 -translate-y-1/2 px-3 py-2 bg-purple-700 text-white rounded-full hover:bg-purple-600 transition flex items-center z-10"
+              onClick={handlePrev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-purple-700 text-white p-2 rounded-full hover:bg-purple-600 z-10"
               aria-label="Previous project"
             >
-              <AiOutlineLeft className="text-3xl" />
+              <AiOutlineLeft className="text-2xl" />
             </button>
 
-            {/* Card */}
-            <TitleCard
-              imageSrc={currentProject.img}
-              altText={currentProject.title}
-              captionText={currentProject.title}
-              containerHeight="auto"
-              containerWidth="auto"
-              imageHeight="200px"
-              imageWidth="200px"
-              rotateAmplitude={12}
-              scaleOnHover={1.1}
-              showMobileWarning={false}
-              showTooltip={true}
-              displayOverlayContent={false}
-            />
+            {/* Project content with animation */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.4 }}
+                className="flex flex-col items-center w-full mt-20"
+              >
+                <TitleCard
+                  imageSrc={currentProject.img}
+                  altText={currentProject.title}
+                  captionText={currentProject.title}
+                  containerHeight="auto"
+                  containerWidth="auto"
+                  imageHeight="200px"
+                  imageWidth="200px"
+                  rotateAmplitude={8}
+                  scaleOnHover={1.05}
+                  showMobileWarning={false}
+                  showTooltip={true}
+                  displayOverlayContent={false}
+                />
+              </motion.div>
+            </AnimatePresence>
 
-            {/* Next Button */}
+            {/* Next button */}
             <button
-              onClick={nextProject}
-              className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-2 bg-purple-700 text-white rounded-full hover:bg-purple-600 transition flex items-center z-10"
+              onClick={handleNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-purple-700 text-white p-2 rounded-full hover:bg-purple-600 z-10"
               aria-label="Next project"
             >
-              <AiOutlineRight className="text-3xl" />
+              <AiOutlineRight className="text-2xl" />
             </button>
           </div>
 
-          {/* Contenu sous l’image */}
-          <div className="w-full max-w-[400px] mt-4 text-white px-4 sm:px-0">
-            <p className="text-xs text-gray-200 text-center">
-              {currentProject.description}
-            </p>
-            <a
-              href={currentProject.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-3 py-1 bg-slate-700 rounded hover:bg-slate-600 transition mx-auto mt-2"
-            >
-              <AiOutlineGithub className="mr-2" />
-              View on GitHub
-            </a>
-            <div className="flex flex-wrap justify-center gap-2 mt-2">
+          {/* Text info */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="w-full max-w-md mx-auto text-white text-sm px-2"
+          >
+            <p className="text-center mb-3">{currentProject.description}</p>
+            <div className="flex justify-center mb-3">
+              <a
+                href={currentProject.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded shadow-md transition"
+              >
+                <AiOutlineGithub />
+                View on GitHub
+              </a>
+            </div>
+            <div className="flex flex-wrap justify-center gap-2">
               {currentProject.technos.map((tech, idx) => (
                 <span
                   key={idx}
-                  className="bg-purple-800/60 text-xs text-white px-2 py-1 rounded"
+                  className="bg-purple-800/60 hover:bg-purple-700 text-xs text-white px-3 py-1 rounded transition"
                 >
                   {tech}
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         </Reveal>
       </div>
     </div>
