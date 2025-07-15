@@ -6,6 +6,7 @@ import { TbBrandTypescript } from 'react-icons/tb';
 import { FaPhp } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
 import { FiDownload } from 'react-icons/fi';
+import AutoTyping from './ui/AutoTyping';
 
 const Hero = () => {
   return (
@@ -28,15 +29,15 @@ const Hero = () => {
             <span className="text-purple-500">Shan Jeev</span>
           </motion.p>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 1 }}
             className="text-gray-300 max-w-[300px] md:max-w-[500px] md:text-2xl text-lg mb-6"
           >
-            I am a passionate fullstack developer
-          </motion.p>
+            <AutoTyping />
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 50 }}
