@@ -99,7 +99,7 @@ const Contact = () => {
                 type="submit"
                 className="w-full py-3 rounded-lg font-semibold text-lg bg-gradient-to-r from-purple-600 to-purple-800 text-white shadow-lg hover:brightness-110 transition duration-200 ease-in-out"
               >
-                Envoyer le message
+                Send a message    
               </button>
 
               {status && (
