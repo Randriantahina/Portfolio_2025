@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { AiOutlineGithub, AiOutlineLinkedin } from 'react-icons/ai';
 import { DiJavascript1, DiNodejsSmall, DiReact } from 'react-icons/di';
 import { TbBrandTypescript } from 'react-icons/tb';
-import { FaPhp } from 'react-icons/fa'; // <-- corrigé ici
+import { FaPhp } from 'react-icons/fa';
 import { FiDownload } from 'react-icons/fi';
 import AutoTyping from './ui/AutoTyping';
 
@@ -20,11 +20,6 @@ const Hero = () => {
     window.addEventListener('resize', setHeight);
     return () => window.removeEventListener('resize', setHeight);
   }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-  };
 
   const staggerVariants = {
     visible: { transition: { staggerChildren: 0.3, delayChildren: 0.2 } },
