@@ -37,6 +37,7 @@ const skills = [
       { name: 'MongoDB', icon: <DiMongodb className="text-green-600" /> },
       { name: 'Laravel', icon: <FaLaravel className="text-red-500" /> },
       { name: 'Mysql', icon: <SiMysql className="text-blue-600" /> },
+      { name: 'PostgreSQL', icon: <SiPostgresql className="text-blue-400" /> },
     ],
   },
 ];
@@ -84,7 +85,7 @@ const Skills = () => {
         {skills.map((skill, index) => (
           <motion.div
             key={index}
-            className="bg-purple-900/30 border border-purple-700 rounded-2xl p-8 shadow-lg w-full md:w-5/6 overflow-hidden"
+            className="bg-purple-900/30 border border-purple-700 rounded-2xl p-8 shadow-lg w-full md:w-5/6 h-[320px]  overflow-hidden"
             variants={itemVariants}
             whileHover={{
               scale: 1.03,

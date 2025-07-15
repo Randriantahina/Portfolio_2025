@@ -103,7 +103,9 @@ const Contact = () => {
               </button>
 
               {status && (
-                <p className="text-center text-white mt-4">{status}</p>
+                <p className="text-center text-white mt-4 drop-shadow-[0_2px_8px_rgba(128,0,255,0.7)]">
+                  {status}
+                </p>
               )}
             </form>
           </div>
