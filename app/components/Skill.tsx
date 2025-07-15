@@ -105,8 +105,8 @@ const Skills = () => {
                   transition={{ type: 'spring', stiffness: 300 }}
                   title={tech.name}
                 >
-                  <span className="text-2xl">{tech.icon}</span>
-                  <span className="text-base">{tech.name}</span>
+                  <span className="text-4xl">{tech.icon}</span>
+                  <span className="text-lg font-medium">{tech.name}</span>
                 </motion.div>
               ))}
             </div>
