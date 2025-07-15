@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import Reveal from './Reveal';
 
 const Contact = () => {
@@ -25,71 +26,88 @@ const Contact = () => {
       setStatus('Erreur lors de l’envoi.');
     }
   }
+
   return (
-    <div className="px-6 max-w-[1000px] mx-auto  md:my-12" id="contact">
+    <div className="px-6 max-w-[1000px] mx-auto py-20 md:my-12" id="contact">
       <Reveal>
-        <div className="grid md:grid-cols-2 place-items-center">
-          <div className="flex flex-col items-center my-3 gap-6">
-            <Image
-              src="/phone.png"
-              alt="Phone"
-              width={96}
-              height={96}
-              className="w-24 h-24 object-contain rounded-full shadow-lg"
-            />
-            <Image
-              src="/mail.png"
-              alt="Mail"
-              width={100}
-              height={96}
-              className="w-24 h-24 object-contain rounded-full shadow-lg"
-            />
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="glass-effect rounded-2xl p-10 md:p-16 shadow-2xl border border-white/10 relative overflow-hidden shiny-line-effect"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center bg-gradient-to-r from-purple-100 via-purple-400 to-purple-600 bg-clip-text text-transparent drop-shadow-[0_2px_32px_rgba(128,0,255,0.5)]">
+            Contacte-me
+          </h2>
 
-          <form
-            method="POST"
-            className="max-w-6xl p-5 md:p-12"
-            id="form"
-            onSubmit={handleSubmit}
-          >
-            <p className="text-gray-100 font-bold text-xl mb-2">Contact Me</p>
+          <div className="grid md:grid-cols-2 place-items-center gap-8">
+            {/* ICONES */}
+            <div className="flex flex-col items-center gap-8">
+              <Image
+                src="/phone.png"
+                alt="Phone"
+                width={96}
+                height={96}
+                className="w-24 h-24 object-contain rounded-full shadow-lg"
+              />
+              <Image
+                src="/mail.png"
+                alt="Mail"
+                width={100}
+                height={96}
+                className="w-24 h-24 object-contain rounded-full shadow-lg"
+              />
+            </div>
 
-            <label htmlFor="email" className="sr-only">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Your Email ..."
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="mb-2 w-full rounded-md border border-purple-600 py-2 pl-2 pr-4"
-              required
-            />
-            <label htmlFor="message" className="sr-only">
-              Message
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              cols={30}
-              rows={4}
-              placeholder="Your Message ..."
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="mb-2 w-full rounded-md border border-purple-600 py-2 pl-2 pr-4"
-              required
-            />
-            <button
-              type="submit"
-              className="w-full py-3 rounded-md text-gray-100 font-semibold text-xl bg-purple-600 hover:bg-purple-700 transition duration-200 ease-in-out shadow-lg"
+            {/* FORMULAIRE */}
+            <form
+              method="POST"
+              className="w-full space-y-4"
+              id="form"
+              onSubmit={handleSubmit}
             >
-              Send Message
-            </button>
-            {status && <p className="text-white text-center p-4">{status}</p>}
-          </form>
-        </div>
+              <label htmlFor="email" className="sr-only">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                placeholder="your Email ..."
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full rounded-lg border border-purple-600 bg-white/10 text-white placeholder-gray-400 py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                required
+              />
+
+              <label htmlFor="message" className="sr-only">
+                Message
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                cols={30}
+                rows={5}
+                placeholder="your message ..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="w-full rounded-lg border border-purple-600 bg-white/10 text-white placeholder-gray-400 py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                required
+              />
+
+              <button
+                type="submit"
+                className="w-full py-3 rounded-lg font-semibold text-lg bg-gradient-to-r from-purple-600 to-purple-800 text-white shadow-lg hover:brightness-110 transition duration-200 ease-in-out"
+              >
+                Envoyer le message
+              </button>
+
+              {status && (
+                <p className="text-center text-white mt-4">{status}</p>
+              )}
+            </form>
+          </div>
+        </motion.div>
       </Reveal>
     </div>
   );

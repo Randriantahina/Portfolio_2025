@@ -32,7 +32,7 @@ export default function AutoTyping() {
   }, [index, isDeleting]);
 
   return (
-    <h1 className="text-gray-300 max-w-[300px] md:max-w-[500px] md:text-2xl text-lg mb-6">
+    <h1 className="text-gray-300 max-w-[300px] md:max-w-[500px] whitespace-nowrap md:text-2xl text-lg mb-6 transform -translate-x-8">
       {displayedText}|
     </h1>
   );
