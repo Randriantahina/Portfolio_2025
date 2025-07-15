@@ -69,7 +69,7 @@ const Project = () => {
       <div className="flex flex-col items-center text-center">
         <Reveal>
           <h2 className="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">
-            My Side fun Projects
+            My fun side Projects
           </h2>
         </Reveal>
 
