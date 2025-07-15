@@ -37,7 +37,7 @@ const Contact = () => {
           className="glass-effect rounded-2xl p-10 md:p-16 shadow-2xl border border-white/10 relative overflow-hidden shiny-line-effect"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center bg-gradient-to-r from-purple-100 via-purple-400 to-purple-600 bg-clip-text text-transparent drop-shadow-[0_2px_32px_rgba(128,0,255,0.5)]">
-            Contacte-me
+            Contact-me
           </h2>
 
           <div className="grid md:grid-cols-2 place-items-center gap-8">
