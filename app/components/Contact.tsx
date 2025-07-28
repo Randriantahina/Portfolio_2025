@@ -80,7 +80,7 @@ const Contact = () => {
                 required
               />
 
-              <label htmlFor="message" className="sr-only">
+              <label htmlFor="message" className="sr-only"> 
                 Message
               </label>
               <textarea
