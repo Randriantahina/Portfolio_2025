@@ -44,8 +44,9 @@ const Hero = () => {
       style={{ height: viewportHeight }}
       className="relative overflow-hidden px-6 flex flex-col justify-center items-center text-center bg-gradient-to-br from-gray-900 via-purple-900 to-black"
     >
-      {/* Fond léger blur et gradient */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-purple-700 via-pink-900 to-indigo-900 opacity-60 blur-3xl pointer-events-none" />
+      {/* Fond léger blur et gradient amélioré */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-purple-700/40 via-pink-900/30 to-indigo-900/40 blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-purple-500/10 to-transparent pointer-events-none" />
 
       <motion.div
         className="relative max-w-4xl z-10"
@@ -54,11 +55,27 @@ const Hero = () => {
         variants={staggerVariants}
       >
         <motion.h1
-          className="text-gray-100 md:text-7xl text-5xl font-extrabold tracking-tight mb-6"
+          className="text-gray-100 md:text-7xl text-5xl font-extrabold tracking-tight mb-6 relative"
           variants={itemVariants}
         >
-          HELLO, I AM <br />
-          <span className="text-purple-400">Shan Jeev</span>
+          <span className="relative">
+            <span className="text-glow">HELLO, I AM</span> <br />
+            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent relative text-6xl md:text-8xl">
+              Shan Jeev
+              <motion.div
+                className="absolute -inset-1 bg-gradient-to-r from-purple-400/20 to-pink-400/20 blur-lg -z-10"
+                animate={{
+                  opacity: [0.5, 0.8, 0.5],
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              />
+            </span>
+          </span>
         </motion.h1>
 
         <motion.div
@@ -95,13 +112,15 @@ const Hero = () => {
 
           <motion.a
             whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             href="/CV.pdf"
             download
-            className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold px-5 py-3 rounded-lg shadow-lg transition"
+            className="relative flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 overflow-hidden group"
             aria-label="Download CV"
           >
-            <FiDownload size={20} />
-            Download CV
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-pink-400/20 blur-xl group-hover:blur-2xl transition-all duration-300" />
+            <FiDownload size={20} className="relative z-10" />
+            <span className="relative z-10">Download CV</span>
           </motion.a>
         </motion.div>
 
