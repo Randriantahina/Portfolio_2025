@@ -59,23 +59,16 @@ const Contact = () => {
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    try {
-      const { name, value } = e.target;
-      if (name && typeof value === 'string') {
-        setFormData((prev) => ({
-          ...prev,
-          [name]: value,
-        }));
-      }
-    } catch (error) {
-      console.warn('Form input error:', error);
-    }
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // Validation des données
     if (!formData.email || !formData.message) {
       setStatus('Veuillez remplir tous les champs obligatoires.');
       return;
@@ -112,75 +105,56 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-20 px-6 bg-gradient-to-br from-black via-gray-900 to-purple-900/20"
+      className="py-24 px-4 bg-gradient-to-br from-gray-950 via-purple-950 to-gray-900 relative"
     >
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
+      {/* Glow background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-3xl"></div>
+      </div>
+      <div className="relative max-w-4xl mx-auto z-10">
         <Reveal>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 ">
-              Contactez-
-              <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">
-                moi
+          {/* Titre principal tout en haut */}
+          <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center">
+            <span className="relative inline-block px-4 py-2">
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 rounded-xl blur-md opacity-40"></span>
+              <span className="relative bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+                Contactez-moi
               </span>
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mb-8"></div>
-            <p className="text-gray-300 text-xl max-w-2xl mx-auto">
-              Vous avez un projet en tête ? N&apos;hésitez pas à me contacter
-              pour en discuter !
-            </p>
-          </div>
-        </Reveal>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Informations de contact */}
-          <Reveal>
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Restons en contact
-                </h3>
-                <p className="text-gray-300 text-lg mb-8">
-                  Je suis toujours ouvert aux nouvelles opportunités et
-                  collaborations. Que ce soit pour un projet, une question ou
-                  simplement pour échanger, n&apos;hésitez pas à me contacter !
-                </p>
-              </div>
-
-              {/* Informations de contact */}
-              <div className="space-y-6">
+            </span>
+          </h2>
+          <div className="flex flex-col md:flex-row gap-12 items-stretch">
+            {/* Bloc contact infos */}
+            <div className="flex-1 flex flex-col justify-center bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-lg">
+              <div className="space-y-6 mb-8">
                 {contactInfo.map((info, index) => (
                   <motion.a
                     key={index}
                     href={info.link}
-                    whileHover={{ scale: 0.97 }}
-                    className="flex items-center space-x-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-purple-400/30 transition-all duration-300 group"
+                    whileHover={{ scale: 1.03 }}
+                    className="flex items-center gap-4 p-4 rounded-xl bg-gray-900/80 border border-purple-700/30 text-white hover:bg-purple-700/30 hover:border-purple-400 transition-all"
                   >
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center text-purple-400 group-hover:text-purple-300">
+                    <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20">
                       {info.icon}
                     </div>
                     <div>
-                      <h4 className="text-white font-semibold">{info.title}</h4>
+                      <h4 className="font-semibold">{info.title}</h4>
                       <p className="text-gray-300">{info.value}</p>
                     </div>
                   </motion.a>
                 ))}
               </div>
-
-              {/* Réseaux sociaux */}
               <div>
                 <h4 className="text-xl font-semibold text-white mb-4">
                   Suivez-moi
                 </h4>
-                <div className="flex space-x-4">
+                <div className="flex gap-4">
                   {socialLinks.map((social, index) => (
                     <motion.a
                       key={index}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 0.97 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.1 }}
                       className={`w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 transition-colors duration-300 ${social.color}`}
                       title={social.name}
                     >
@@ -190,22 +164,16 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </Reveal>
 
-          {/* Formulaire de contact */}
-          <Reveal>
-            <div className="relative ml-12">
-              {/* Effet de glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl blur-xl"></div>
-
-              <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-6">
+            {/* Bloc formulaire */}
+            <div className="flex-1 flex flex-col justify-center relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl blur-xl pointer-events-none"></div>
+              <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-lg">
+                <h3 className="text-2xl font-bold text-white mb-6 text-center">
                   Envoyez-moi un message
                 </h3>
-
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Nom */}
-                  <div className="relative">
+                  <div>
                     <label
                       htmlFor="name"
                       className="block text-sm font-medium text-gray-300 mb-2"
@@ -221,14 +189,12 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Votre nom complet"
-                        className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                        className="w-full pl-10 pr-4 py-3 bg-gray-900/80 border border-purple-700/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                         required
                       />
                     </div>
                   </div>
-
-                  {/* Email */}
-                  <div className="relative">
+                  <div>
                     <label
                       htmlFor="email"
                       className="block text-sm font-medium text-gray-300 mb-2"
@@ -244,14 +210,12 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="votre.email@exemple.com"
-                        className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                        className="w-full pl-10 pr-4 py-3 bg-gray-900/80 border border-purple-700/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                         required
                       />
                     </div>
                   </div>
-
-                  {/* Message */}
-                  <div className="relative">
+                  <div>
                     <label
                       htmlFor="message"
                       className="block text-sm font-medium text-gray-300 mb-2"
@@ -267,17 +231,15 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Décrivez votre projet ou votre message..."
                         rows={5}
-                        className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 resize-none"
+                        className="w-full pl-10 pr-4 py-3 bg-gray-900/80 border border-purple-700/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 resize-none"
                         required
                       />
                     </div>
                   </div>
-
-                  {/* Bouton d'envoi */}
                   <motion.button
                     type="submit"
                     disabled={isLoading}
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
@@ -290,8 +252,6 @@ const Contact = () => {
                       </>
                     )}
                   </motion.button>
-
-                  {/* Status message */}
                   {status && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
@@ -308,8 +268,8 @@ const Contact = () => {
                 </form>
               </div>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
