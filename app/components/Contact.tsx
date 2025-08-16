@@ -118,7 +118,7 @@ const Contact = () => {
         {/* Header */}
         <Reveal>
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 ">
               Contactez-
               <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">
                 moi
@@ -153,7 +153,7 @@ const Contact = () => {
                   <motion.a
                     key={index}
                     href={info.link}
-                    whileHover={{ x: 10, scale: 1.02 }}
+                    whileHover={{ scale: 0.97 }}
                     className="flex items-center space-x-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-purple-400/30 transition-all duration-300 group"
                   >
                     <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center text-purple-400 group-hover:text-purple-300">
@@ -179,7 +179,7 @@ const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileHover={{ scale: 0.97 }}
                       whileTap={{ scale: 0.95 }}
                       className={`w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 transition-colors duration-300 ${social.color}`}
                       title={social.name}
@@ -194,7 +194,7 @@ const Contact = () => {
 
           {/* Formulaire de contact */}
           <Reveal>
-            <div className="relative">
+            <div className="relative ml-12">
               {/* Effet de glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl blur-xl"></div>
 

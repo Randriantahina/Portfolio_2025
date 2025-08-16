@@ -149,7 +149,7 @@ const Project = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ delay: index * 0.1 }}
                 className="group relative bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-purple-400/30 transition-all duration-300"
-                whileHover={{ y: -5, scale: 1.02 }}
+                whileHover={{ scale: 0.97 }}
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">

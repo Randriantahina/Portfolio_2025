@@ -114,7 +114,7 @@ const About = () => {
               {skills.map((skill, index) => (
                 <Reveal key={index}>
                   <motion.div
-                    whileHover={{ scale: 1.05, y: -5 }}
+                    whileHover={{ scale: 0.97 }}
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-purple-400/30 transition-all duration-300"
                   >
                     <div className="flex items-center mb-3">
@@ -143,7 +143,7 @@ const About = () => {
               {passions.map((passion, index) => (
                 <motion.div
                   key={index}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 0.97 }}
                   className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-400/30 transition-all duration-300"
                 >
                   <div className="text-purple-400 mb-4 flex justify-center">
