@@ -105,7 +105,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-24 px-4 bg-gradient-to-br from-gray-950 via-purple-950 to-gray-900 relative"
+      className="relative overflow-hidden py-24 px-4 bg-gradient-to-br from-gray-950 via-purple-950 to-gray-900"
     >
       {/* Glow background */}
       <div className="absolute inset-0 pointer-events-none">

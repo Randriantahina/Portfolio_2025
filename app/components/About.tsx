@@ -31,7 +31,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative py-24 px-6 bg-gradient-to-br from-black via-purple-900 to-pink-900"
+      className="relative overflow-hidden py-24 px-6 bg-gradient-to-br from-black via-purple-900 to-pink-900"
     >
       {/* Animated Glow background */}
       <div className="absolute inset-0 pointer-events-none">
