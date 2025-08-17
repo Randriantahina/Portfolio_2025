@@ -105,7 +105,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-24 px-4 bg-gradient-to-br from-gray-950 via-purple-950 to-gray-900"
+      className="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-gray-950 via-purple-950 to-gray-900"
     >
       {/* Glow background */}
       <div className="absolute inset-0 pointer-events-none">
@@ -114,7 +114,7 @@ const Contact = () => {
       <div className="relative max-w-4xl mx-auto z-10">
         <Reveal>
           {/* Titre principal tout en haut */}
-          <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-12 md:mb-16 text-center">
             <span className="relative inline-block px-4 py-2">
               <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 rounded-xl blur-md opacity-40"></span>
               <span className="relative bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
@@ -122,18 +122,18 @@ const Contact = () => {
               </span>
             </span>
           </h2>
-          <div className="flex flex-col md:flex-row gap-12 items-stretch">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-stretch">
             {/* Bloc contact infos */}
-            <div className="flex-1 flex flex-col justify-center bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-lg">
+            <div className="flex-1 flex flex-col justify-center bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 shadow-lg">
               <div className="space-y-6 mb-8">
                 {contactInfo.map((info, index) => (
                   <motion.a
                     key={index}
                     href={info.link}
                     whileHover={{ scale: 1.03 }}
-                    className="flex items-center gap-4 p-4 rounded-xl bg-gray-900/80 border border-purple-700/30 text-white hover:bg-purple-700/30 hover:border-purple-400 transition-all"
+                    className="flex items-center gap-4 p-3 sm:p-4 rounded-xl bg-gray-900/80 border border-purple-700/30 text-white hover:bg-purple-700/30 hover:border-purple-400 transition-all"
                   >
-                    <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20">
                       {info.icon}
                     </div>
                     <div>
@@ -155,7 +155,7 @@ const Contact = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}
-                      className={`w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 transition-colors duration-300 ${social.color}`}
+                      className={`w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 transition-colors duration-300 ${social.color}`}
                       title={social.name}
                     >
                       {social.icon}
@@ -168,8 +168,8 @@ const Contact = () => {
             {/* Bloc formulaire */}
             <div className="flex-1 flex flex-col justify-center relative">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl blur-xl pointer-events-none"></div>
-              <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-lg">
-                <h3 className="text-2xl font-bold text-white mb-6 text-center">
+              <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 shadow-lg">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 text-center">
                   Envoyez-moi un message
                 </h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -241,7 +241,7 @@ const Contact = () => {
                     disabled={isLoading}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-3.5 sm:py-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -261,6 +261,8 @@ const Contact = () => {
                           ? 'bg-green-500/20 text-green-400 border border-green-500/30'
                           : 'bg-red-500/20 text-red-400 border border-red-500/30'
                       }`}
+                      role="alert"
+                      aria-live="assertive"
                     >
                       {status}
                     </motion.div>
