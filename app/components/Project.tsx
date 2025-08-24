@@ -24,7 +24,7 @@ const projects = [
   },
   {
     id: 2,
-    img: '/e.jpg',
+    img: '/e-commerce.png',
     title: 'E-commerce Project',
     description: 'E-commerce website built with Laravel, React, and MySQL.',
     longDescription:
@@ -38,7 +38,7 @@ const projects = [
   },
   {
     id: 3,
-    img: '/stocks.jpg',
+    img: '/inventory.png',
     title: 'Inventory Management',
     description: 'Inventory management project developed with Next.js.',
     longDescription:
@@ -75,6 +75,21 @@ const projects = [
     category: 'Full-Stack',
     links: {
       github: 'https://github.com/Randriantahina/task-app.git',
+      demo: '#',
+    },
+  },
+  {
+    id: 6,
+    img: '/media.png',
+    title: 'mini social media',
+    description:
+      'A modern mini social network built with Laravel Sail and Inertia.',
+    longDescription:
+      'A web application that allows users to create and share posts with a like and comment system. Built with Laravel Sail for a Dockerized development environment and Inertia.js to connect the Laravel backend with a modern frontend.',
+    technos: ['Laravel Sail', 'Inertia.js', 'PostgreSQL'],
+    category: 'Full-Stack',
+    links: {
+      github: 'https://github.com/Randriantahina/social-media.git',
       demo: '#',
     },
   },
