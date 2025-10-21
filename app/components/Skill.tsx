@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { DiSass, DiReact, DiNodejsSmall, DiMongodb } from "react-icons/di";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { SiGithubactions, SiDocker, SiBootstrap } from "react-icons/si";

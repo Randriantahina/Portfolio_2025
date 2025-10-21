@@ -10,7 +10,7 @@ const projects = [
   {
     id: 1,
     img: "/saas.png",
-    title: "Software as as Service",
+    title: "SaaS Platform",
     description:
       "A complete SaaS application built with Laravel and the TALL stack, featuring a powerful admin panel created with Filament.",
     longDescription:
