@@ -1,110 +1,110 @@
-'use client';
-import React, { useState } from 'react';
-import { AiOutlineGithub, AiOutlineEye, AiOutlineClose } from 'react-icons/ai';
-import { FiExternalLink } from 'react-icons/fi';
-import Reveal from './Reveal';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+"use client";
+import React, { useState } from "react";
+import { AiOutlineGithub, AiOutlineEye, AiOutlineClose } from "react-icons/ai";
+import { FiExternalLink } from "react-icons/fi";
+import Reveal from "./Reveal";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const projects = [
   {
     id: 1,
-    img: '/TODO-List.png',
-    title: 'Todo Project',
+    img: "/saas.png",
+    title: "Software as as Service",
     description:
-      'Todo List with authentication built using React.js, Express, and MySQL.',
+      "A complete SaaS application built with Laravel and the TALL stack, featuring a powerful admin panel created with Filament.",
     longDescription:
-      "Application complète de gestion de tâches avec authentification utilisateur, CRUD complet et interface moderne. Développée avec React.js pour le frontend, Express.js pour l'API REST et MySQL pour la base de données.",
-    technos: ['React.js', 'Express', 'MySQL', 'Tailwind CSS'],
-    category: 'Full-Stack',
+      "This is a full-fledged Software as a Service application featuring multi-tenancy, user authentication, subscription management, and a powerful admin panel built with Filament. The backend is powered by Laravel, and the frontend is built with the TALL stack (Tailwind CSS, Alpine.js, Laravel Livewire). The database is SQLite for easy setup and development.",
+    technos: ["Filament", "Laravel", "SQlite"],
+    category: "Full-Stack",
     links: {
-      github: 'https://github.com/Randriantahina/react-express.git',
-      demo: '#',
+      github: "https://github.com/Randriantahina/filament-blog.git",
+      demo: "#",
     },
   },
   {
     id: 2,
-    img: '/e-commerce.png',
-    title: 'E-commerce Project',
-    description: 'E-commerce website built with Laravel, React, and MySQL.',
+    img: "/e-commerce.png",
+    title: "E-commerce Project",
+    description: "E-commerce website built with Laravel, React, and MySQL.",
     longDescription:
       "Plateforme e-commerce complète avec gestion des produits, panier d'achat, système de paiement et administration. Architecture moderne avec Laravel pour l'API et React pour l'interface utilisateur.",
-    technos: ['Laravel', 'React', 'MySQL', 'Tailwind CSS'],
-    category: 'Full-Stack',
+    technos: ["Laravel", "React", "MySQL", "Tailwind CSS"],
+    category: "Full-Stack",
     links: {
-      github: 'https://github.com/Randriantahina/laravel-e-commerce.git',
-      demo: '#',
+      github: "https://github.com/Randriantahina/laravel-e-commerce.git",
+      demo: "#",
     },
   },
   {
     id: 3,
-    img: '/inventory.png',
-    title: 'Inventory Management',
-    description: 'Inventory management project developed with Next.js.',
+    img: "/inventory.png",
+    title: "Inventory Management",
+    description: "Inventory management project developed with Next.js.",
     longDescription:
-      'Système de gestion de stock moderne avec tableau de bord analytique, suivi en temps réel et rapports détaillés. Développé avec Next.js et TypeScript pour une performance optimale.',
-    technos: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL'],
-    category: 'Full-Stack',
+      "Système de gestion de stock moderne avec tableau de bord analytique, suivi en temps réel et rapports détaillés. Développé avec Next.js et TypeScript pour une performance optimale.",
+    technos: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
+    category: "Full-Stack",
     links: {
-      github: 'https://github.com/Randriantahina/inventory.git',
-      demo: '#',
+      github: "https://github.com/Randriantahina/inventory.git",
+      demo: "#",
     },
   },
   {
     id: 4,
-    img: '/portfolio.png',
-    title: 'Portfolio Website',
-    description: 'My personal portfolio website.',
+    img: "/portfolio.png",
+    title: "Portfolio Website",
+    description: "My personal portfolio website.",
     longDescription:
-      'Portfolio personnel moderne avec animations fluides, design responsive et optimisations de performance. Construit avec Next.js et des animations Framer Motion.',
-    technos: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
-    category: 'Frontend',
+      "Portfolio personnel moderne avec animations fluides, design responsive et optimisations de performance. Construit avec Next.js et des animations Framer Motion.",
+    technos: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    category: "Frontend",
     links: {
-      github: 'https://github.com/Randriantahina/Portfolio_2025.git',
-      demo: 'https://shan-rose.vercel.app/',
+      github: "https://github.com/Randriantahina/Portfolio_2025.git",
+      demo: "https://shan-rose.vercel.app/",
     },
   },
   {
     id: 5,
-    img: '/i.png',
-    title: 'Intelligent Website',
-    description: 'AI-enhanced intelligent website.',
+    img: "/i.png",
+    title: "Intelligent Website",
+    description: "AI-enhanced intelligent website.",
     longDescription:
       "Application web intelligente intégrant l'IA avec l'API Gemini pour des fonctionnalités avancées. Interface moderne avec Firebase pour l'authentification et le stockage.",
-    technos: ['Next.js', 'Firebase', 'Gemini API', 'Tailwind CSS'],
-    category: 'Full-Stack',
+    technos: ["Next.js", "Firebase", "Gemini API", "Tailwind CSS"],
+    category: "Full-Stack",
     links: {
-      github: 'https://github.com/Randriantahina/task-app.git',
-      demo: '#',
+      github: "https://github.com/Randriantahina/task-app.git",
+      demo: "#",
     },
   },
   {
     id: 6,
-    img: '/media.png',
-    title: 'mini social media',
+    img: "/media.png",
+    title: "mini social media",
     description:
-      'A modern mini social network built with Laravel Sail and Inertia.',
+      "A modern mini social network built with Laravel Sail and Inertia.",
     longDescription:
-      'A web application that allows users to create and share posts with a like and comment system. Built with Laravel Sail for a Dockerized development environment and Inertia.js to connect the Laravel backend with a modern frontend.',
-    technos: ['Laravel Sail', 'Inertia.js', 'PostgreSQL'],
-    category: 'Full-Stack',
+      "A web application that allows users to create and share posts with a like and comment system. Built with Laravel Sail for a Dockerized development environment and Inertia.js to connect the Laravel backend with a modern frontend.",
+    technos: ["Laravel Sail", "Inertia.js", "PostgreSQL"],
+    category: "Full-Stack",
     links: {
-      github: 'https://github.com/Randriantahina/social-media.git',
-      demo: '#',
+      github: "https://github.com/Randriantahina/social-media.git",
+      demo: "#",
     },
   },
 ];
 
 const Project = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<
     (typeof projects)[0] | null
   >(null);
 
-  const categories = ['All', 'Frontend', 'Full-Stack'];
+  const categories = ["All", "Frontend", "Full-Stack"];
 
   const filteredProjects =
-    selectedCategory === 'All'
+    selectedCategory === "All"
       ? projects
       : projects.filter((project) => project.category === selectedCategory);
 
@@ -118,7 +118,7 @@ const Project = () => {
         <Reveal>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Mes{' '}
+              Mes{" "}
               <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">
                 Projets
               </span>
@@ -141,11 +141,11 @@ const Project = () => {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                     selectedCategory === category
-                      ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                      : 'bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white'
+                      ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg"
+                      : "bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white"
                   }`}
                 >
-                  {category === 'All' ? 'Tous les projets' : category}
+                  {category === "All" ? "Tous les projets" : category}
                 </button>
               ))}
             </div>
@@ -175,7 +175,7 @@ const Project = () => {
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      target.src = '/placeholder-project.jpg';
+                      target.src = "/placeholder-project.jpg";
                     }}
                     loading="lazy"
                   />
@@ -197,7 +197,7 @@ const Project = () => {
                     >
                       <AiOutlineGithub size={20} />
                     </a>
-                    {project.links.demo !== '#' && (
+                    {project.links.demo !== "#" && (
                       <a
                         href={project.links.demo}
                         target="_blank"
@@ -326,7 +326,7 @@ const Project = () => {
                       <AiOutlineGithub size={20} />
                       Voir le code
                     </a>
-                    {selectedProject.links.demo !== '#' && (
+                    {selectedProject.links.demo !== "#" && (
                       <a
                         href={selectedProject.links.demo}
                         target="_blank"
